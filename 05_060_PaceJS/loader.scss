@@ -1,60 +1,60 @@
-@use "mixin" as *;
-
+@import 'mixin';
 $cSubTitle: #535353;
 $cWineRed: #904669;
 
 #global-container {
-  transition: opacity 1s;
+    transition: opacity 1s;
 }
 
 .pace-running #global-container {
-  opacity: 0;
-  visibility: hidden;
+    opacity: 0;
+    visibility: hidden;
 }
 
 .pace {
-  z-index: 2000;
-  position: fixed;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  width: 100px;
-  height: 100px;
+	z-index: 2000;
+	position: fixed;
+	margin: auto;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	width: 100px;
+	height: 100px;
 }
 
 .pace .pace-progress {
-  transform: none !important;
-  text-align: center;
+    transform: none !important;
+	text-align: center;
+
 }
 
 .pace .pace-progress::after {
-  content: attr(data-progress-text);
-  display: block;
-  font-weight: 100;
-  font-size: 2em;
-  font-family: 'Helvetica Neue', 'Yu Gothic', 'Meiryo', sans-serif;
-  color: $cSubTitle;
+	content: attr(data-progress-text);
+	display: block;
+	font-weight: 100;
+    font-size: 2em;
+    font-family: 'Helvetica Neue', 'Yu Gothic', 'Meiryo', sans-serif; // 左から順に環境にフォントがあれば適用される
+    color: $cSubTitle;
 }
 
 .pace.pace-inactive {
-  display: none;
+	display: none;
 }
 
 .pace-progress-inner {
-  width: 40px;
-  height: 40px;
-  background-color: $cWineRed;
+    width: 40px;
+    height: 40px;
+    background-color: $cWineRed;
 
-  margin: 0 auto;
-  @include animation(
-    $name: sk-rotateplane,
-    $duration: 1.2s,
-    $iteration-count: infinite,
-    $timing-function: ease-in-out
-  );
-}
+    margin: 0 auto;
+    @include animation(
+      $name: sk-rotateplane,
+      $duration: 1.2s,
+      $iteration-count: infinite,
+      $timing-function: ease-in-out
+    );
+  }
 
 @keyframes sk-rotateplane {
   0% {
