@@ -1,0 +1,41 @@
+// レスポンシブ画面の設定の仕方：パターン①
+// url関数を付ける。　cssファイルを読み込む際にmediaクエリを後述する。
+@import url("mobile.css") screen and (max-width: 600px);
+@import url("desktop.css") screen and (min-width: 601px);
+
+$breakpoints: (
+    'sm': '(min-width: 480px)',
+    'md': '(min-width: 6000px)',
+    'lg': '(min-width: 960px)',
+    'xl': '(min-width: 1280px)'
+);
+
+@mixin mq($breakpoint: md) {
+    @media #{map-get($breakpoints, $breakpoint)} {
+        @content;
+    }
+}
+
+// レスポンシブ画面の設定の仕方：パターン②
+// 最も一般的な方法。mediaクエリ
+// @media screen and (max-width: 600px) {
+//   h1 {
+//     color: red;
+//   }
+// }
+
+// @media screen and (min-width: 601px) {
+//   h1 {
+//     color: blue;
+//   }
+// }
+
+
+// screen:画面表示時、print:印刷時、all:画面表示時＆印刷時
+// 他にもレティナディスプレイの時を指定するmediaクエリなどもある。
+// ブレイクポイント目安　　　　480px~ スマホ横向き、 600px~ タブレットの縦向き、 960px~ ノートPC等の小さなPC、 1280px~ デスクトップPC
+// @media screen and (min-width: 480px) {
+//   h1 {
+//     color: blue;
+//   }
+// }

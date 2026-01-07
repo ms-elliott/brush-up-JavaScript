@@ -1,2 +1,29 @@
-@import url("mobile.css") screen and (max-width: 600px);
-@import url("desktop.css") screen and (min-width: 601px);
+@use "mq" as *;
+
+// モバイルファースト　：モバイル用でデフォルトを設定し、デスクトップで設定を上書きするパターン。モバイルの方がシンプルな場合が多いので一般的。
+h1 {
+  color: red;
+  background-color: yellow;
+
+  @include mq(sm) {
+    // @contentに内容が反映される
+    color: blue;
+    background-color: yellow;
+  }
+
+  @include mq(md) {
+    color: purple;
+  }
+
+  @include mq(lg) {
+    color: green;
+  }
+  
+  @include mq(xl) {
+    color: orange;
+  } 
+   
+//   @media (min-width: 480px) {
+//     color: blue;
+//   }
+}
