@@ -755,7 +755,6 @@ img {
 @media screen and (min-width: 1280px) {
   .travel__inner {
     padding: 50px 150px;
-    margin: auto;
   }
 }
 .travel__img {
